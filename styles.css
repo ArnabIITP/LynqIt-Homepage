@@ -63,6 +63,19 @@ h1 {
   position: relative;
 }
 
+.glow {
+  animation: glowEffect 2s ease-in-out infinite alternate;
+}
+
+@keyframes glowEffect {
+  from {
+    text-shadow: 0 0 10px #0ff, 0 0 20px #0ff;
+  }
+  to {
+    text-shadow: 0 0 20px #0ff, 0 0 40px #0ff;
+  }
+}
+
 .glitch {
   position: relative;
   color: #00ffff;
@@ -90,23 +103,34 @@ h1 {
   text-shadow: -2px 0 blue;
 }
 
-.subtitle {
+.subtitle, .hint {
+  opacity: 0.8;
   font-size: 1.2rem;
   margin-top: 1rem;
-  opacity: 0.9;
+  transition: all 0.8s ease;
 }
 
 .hint {
-  font-size: 0.95rem;
-  margin-top: 0.5rem;
-  opacity: 0.6;
+  font-size: 1rem;
   font-style: italic;
+  opacity: 0.6;
 }
 
 .dots {
   font-size: 2rem;
   margin-top: 1.5rem;
   animation: blink 1.2s infinite;
+  color: #0ff;
+}
+
+.hidden {
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.fade-in {
+  opacity: 1 !important;
+  transform: translateY(0) !important;
 }
 
 @keyframes gradient {
@@ -129,3 +153,13 @@ h1 {
 @keyframes blink {
   0%, 100% { opacity: 1; }
   50% { opacity: 0.2; }
+}
+
+@keyframes glitch {
+  0% { clip-path: inset(0 0 0 0); transform: translate(0);}
+  20% { clip-path: inset(10% 0 85% 0); transform: translate(-2px, -2px);}
+  40% { clip-path: inset(50% 0 30% 0); transform: translate(2px, 2px);}
+  60% { clip-path: inset(70% 0 10% 0); transform: translate(-2px, 2px);}
+  80% { clip-path: inset(20% 0 60% 0); transform: translate(2px, -2px);}
+  100% { clip-path: inset(0 0 0 0); transform: translate(0);}
+}
