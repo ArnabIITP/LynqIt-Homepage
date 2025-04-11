@@ -3,50 +3,27 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Something Is Coming...</title>
-    <link href="styles.css" rel="stylesheet" />
+    <title>Coming Soon</title>
+    <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
     <div class="background">
-      <div class="orb"></div>
+      <canvas id="particles"></canvas>
+      <div class="overlay-glow"></div>
     </div>
 
-    <div class="container">
-      <div class="glass">
-        <h1 id="mainText" class="glitch" data-text="Coming Soon...">Coming Soon...</h1>
-        <p id="subtitle" class="subtitle hidden">A new connection is about to emerge.</p>
-        <p id="hint" class="hint hidden">But what is it? You'll know... soon.</p>
-        <div class="dots hidden"><span>.</span><span>.</span><span>.</span></div>
+    <div class="center-box">
+      <h1 class="typing">Coming Soon<span class="cursor">|</span></h1>
+      <p class="subtext">A revolution in connection is near.</p>
+      <div class="loader">
+        <span></span><span></span><span></span>
       </div>
     </div>
 
-<audio id="bg-music" loop autoplay>
-  <source src="https://cdn.pixabay.com/audio/2022/03/31/audio_d9fa43f432.mp3" type="audio/mpeg">
-  Your browser does not support the audio element.
-</audio>
+    <audio autoplay loop>
+      <source src="https://cdn.pixabay.com/audio/2022/03/31/audio_d9fa43f432.mp3" type="audio/mpeg" />
+    </audio>
 
-
-    <script>
-      const subtitle = document.getElementById("subtitle");
-      const hint = document.getElementById("hint");
-      const dots = document.querySelector(".dots");
-      const mainText = document.getElementById("mainText");
-
-      setTimeout(() => {
-        subtitle.classList.remove("hidden");
-        subtitle.classList.add("fade-in");
-
-        setTimeout(() => {
-          hint.classList.remove("hidden");
-          hint.classList.add("fade-in");
-
-          setTimeout(() => {
-            dots.classList.remove("hidden");
-            dots.classList.add("fade-in");
-            mainText.classList.add("glow");
-          }, 1200);
-        }, 1200);
-      }, 2500);
-    </script>
+    <script src="script.js"></script>
   </body>
 </html>
