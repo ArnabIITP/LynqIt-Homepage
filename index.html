@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Coming Soon - Chat App</title>
+    <link href="styles.css" rel="stylesheet" />
+  </head>
+  <body>
+    <div id="background"></div>
+    <div class="overlay">
+      <div class="glass">
+        <h1 class="typing">💬 Coming Soon...</h1>
+        <p>We're building a next-gen real-time chat experience. Stay tuned!</p>
+      </div>
+    </div>
+    <script src="particles.js"></script>
+    <script>
+      // Typing animation (optional customization)
+      const el = document.querySelector(".typing");
+      const text = "💬 Coming Soon...";
+      let i = 0;
+
+      function typing() {
+        if (i < text.length) {
+          el.innerHTML += text.charAt(i);
+          i++;
+          setTimeout(typing, 100);
+        }
+      }
+      el.innerHTML = "";
+      typing();
+    </script>
+  </body>
+</html>
