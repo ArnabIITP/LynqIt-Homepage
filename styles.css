@@ -6,160 +6,122 @@
   box-sizing: border-box;
 }
 
-body, html {
+html, body {
   height: 100%;
   font-family: 'Orbitron', sans-serif;
+  background: #0d0d0d;
   overflow: hidden;
-  background: #0e0e0e;
-  color: #fff;
 }
 
 .background {
-  position: absolute;
+  position: fixed;
+  top: 0;
+  left: 0;
   height: 100%;
   width: 100%;
-  background: linear-gradient(-45deg, #000428, #004e92, #000428, #004e92);
+  background: linear-gradient(120deg, #0f0c29, #302b63, #24243e);
   background-size: 400% 400%;
-  animation: gradient 15s ease infinite;
+  animation: gradientMove 20s ease infinite;
   z-index: -2;
 }
 
-.orb {
+.overlay-glow {
   position: absolute;
   top: 50%;
   left: 50%;
-  height: 500px;
-  width: 500px;
-  background: radial-gradient(circle, rgba(0,255,255,0.2), transparent);
-  border-radius: 50%;
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(0,255,255,0.08), transparent 70%);
   transform: translate(-50%, -50%);
   filter: blur(100px);
-  animation: pulse 4s infinite ease-in-out;
+  animation: pulse 5s infinite ease-in-out;
+  z-index: -1;
 }
 
-.container {
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.glass {
+.center-box {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: #0ff;
   background: rgba(255, 255, 255, 0.05);
-  backdrop-filter: blur(15px);
-  -webkit-backdrop-filter: blur(15px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
   padding: 3rem 4rem;
   border-radius: 20px;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  text-align: center;
-  box-shadow: 0 0 30px rgba(0,255,255,0.1);
-  animation: fadeIn 2s ease-out;
+  backdrop-filter: blur(15px);
+  box-shadow: 0 0 20px rgba(0,255,255,0.2);
 }
 
-h1 {
+.typing {
   font-size: 3rem;
-  margin-bottom: 1rem;
-  color: #00ffff;
-  position: relative;
-}
-
-.glow {
-  animation: glowEffect 2s ease-in-out infinite alternate;
-}
-
-@keyframes glowEffect {
-  from {
-    text-shadow: 0 0 10px #0ff, 0 0 20px #0ff;
-  }
-  to {
-    text-shadow: 0 0 20px #0ff, 0 0 40px #0ff;
-  }
-}
-
-.glitch {
-  position: relative;
-  color: #00ffff;
-  font-weight: bold;
-}
-
-.glitch::before,
-.glitch::after {
-  content: attr(data-text);
-  position: absolute;
-  left: 0;
-  width: 100%;
+  white-space: nowrap;
   overflow: hidden;
-  color: #00ffff;
-  animation: glitch 2s infinite linear alternate-reverse;
+  border-right: 0.15em solid #0ff;
+  width: 0;
+  animation: typing 3s steps(30, end) forwards;
 }
 
-.glitch::before {
-  top: -2px;
-  text-shadow: -2px 0 red;
+.cursor {
+  animation: blink 0.8s infinite;
 }
 
-.glitch::after {
-  top: 2px;
-  text-shadow: -2px 0 blue;
+.subtext {
+  opacity: 0.7;
+  font-size: 1.1rem;
+  margin-top: 1.2rem;
+  animation: fadeIn 4s ease forwards;
 }
 
-.subtitle, .hint {
-  opacity: 0.8;
-  font-size: 1.2rem;
-  margin-top: 1rem;
-  transition: all 0.8s ease;
+.loader {
+  margin-top: 2rem;
 }
 
-.hint {
-  font-size: 1rem;
-  font-style: italic;
-  opacity: 0.6;
+.loader span {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  margin: 0 5px;
+  background-color: #0ff;
+  border-radius: 50%;
+  animation: bounce 1.2s infinite ease-in-out;
 }
 
-.dots {
-  font-size: 2rem;
-  margin-top: 1.5rem;
-  animation: blink 1.2s infinite;
-  color: #0ff;
+.loader span:nth-child(2) {
+  animation-delay: 0.2s;
+}
+.loader span:nth-child(3) {
+  animation-delay: 0.4s;
 }
 
-.hidden {
-  opacity: 0;
-  transform: translateY(20px);
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
 }
 
-.fade-in {
-  opacity: 1 !important;
-  transform: translateY(0) !important;
+@keyframes typing {
+  from { width: 0 }
+  to { width: 15ch }
 }
 
-@keyframes gradient {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
+@keyframes blink {
+  0%, 100% { opacity: 1 }
+  50% { opacity: 0 }
+}
+
+@keyframes gradientMove {
+  0% { background-position: 0% 50% }
+  50% { background-position: 100% 50% }
+  100% { background-position: 0% 50% }
 }
 
 @keyframes pulse {
   0%, 100% {
     transform: translate(-50%, -50%) scale(1);
-    opacity: 0.5;
+    opacity: 0.4;
   }
   50% {
     transform: translate(-50%, -50%) scale(1.1);
-    opacity: 0.8;
+    opacity: 0.7;
   }
-}
-
-@keyframes blink {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0.2; }
-}
-
-@keyframes glitch {
-  0% { clip-path: inset(0 0 0 0); transform: translate(0);}
-  20% { clip-path: inset(10% 0 85% 0); transform: translate(-2px, -2px);}
-  40% { clip-path: inset(50% 0 30% 0); transform: translate(2px, 2px);}
-  60% { clip-path: inset(70% 0 10% 0); transform: translate(-2px, 2px);}
-  80% { clip-path: inset(20% 0 60% 0); transform: translate(2px, -2px);}
-  100% { clip-path: inset(0 0 0 0); transform: translate(0);}
 }
