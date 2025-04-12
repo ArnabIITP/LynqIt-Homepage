@@ -1,127 +1,52 @@
-@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap');
-
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-html, body {
-  height: 100%;
-  font-family: 'Orbitron', sans-serif;
-  background: #0d0d0d;
-  overflow: hidden;
-}
-
-.background {
-  position: fixed;
+.intro-screen {
+  position: absolute;
   top: 0;
   left: 0;
   height: 100%;
   width: 100%;
-  background: linear-gradient(120deg, #0f0c29, #302b63, #24243e);
-  background-size: 400% 400%;
-  animation: gradientMove 20s ease infinite;
-  z-index: -2;
-}
-
-.overlay-glow {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 600px;
-  height: 600px;
-  background: radial-gradient(circle, rgba(0,255,255,0.08), transparent 70%);
-  transform: translate(-50%, -50%);
-  filter: blur(100px);
-  animation: pulse 5s infinite ease-in-out;
-  z-index: -1;
-}
-
-.center-box {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  background: black;
+  color: #00ffff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
   text-align: center;
-  color: #0ff;
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  padding: 3rem 4rem;
-  border-radius: 20px;
-  backdrop-filter: blur(15px);
-  box-shadow: 0 0 20px rgba(0,255,255,0.2);
+  animation: fadeIn 1s ease;
 }
 
-.typing {
-  font-size: 3rem;
-  white-space: nowrap;
-  overflow: hidden;
-  border-right: 0.15em solid #0ff;
-  width: 0;
-  animation: typing 3s steps(30, end) forwards;
-}
-
-.cursor {
-  animation: blink 0.8s infinite;
-}
-
-.subtext {
-  opacity: 0.7;
-  font-size: 1.1rem;
-  margin-top: 1.2rem;
-  animation: fadeIn 4s ease forwards;
-}
-
-.loader {
+.intro-screen button {
   margin-top: 2rem;
+  padding: 1rem 2rem;
+  background: transparent;
+  color: #0ff;
+  border: 2px solid #0ff;
+  border-radius: 10px;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
 }
 
-.loader span {
-  display: inline-block;
-  width: 10px;
-  height: 10px;
-  margin: 0 5px;
+.intro-screen button:hover {
   background-color: #0ff;
-  border-radius: 50%;
-  animation: bounce 1.2s infinite ease-in-out;
+  color: black;
 }
 
-.loader span:nth-child(2) {
-  animation-delay: 0.2s;
-}
-.loader span:nth-child(3) {
-  animation-delay: 0.4s;
-}
-
-@keyframes bounce {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-10px); }
+.glitch-text {
+  font-size: 2.5rem;
+  position: relative;
+  animation: glitch 1.5s infinite;
 }
 
-@keyframes typing {
-  from { width: 0 }
-  to { width: 15ch }
+.hidden {
+  display: none;
 }
 
-@keyframes blink {
-  0%, 100% { opacity: 1 }
-  50% { opacity: 0 }
-}
-
-@keyframes gradientMove {
-  0% { background-position: 0% 50% }
-  50% { background-position: 100% 50% }
-  100% { background-position: 0% 50% }
-}
-
-@keyframes pulse {
-  0%, 100% {
-    transform: translate(-50%, -50%) scale(1);
-    opacity: 0.4;
-  }
-  50% {
-    transform: translate(-50%, -50%) scale(1.1);
-    opacity: 0.7;
-  }
+@keyframes glitch {
+  0% { text-shadow: 2px 0 red, -2px 0 cyan; }
+  20% { text-shadow: -2px 0 red, 2px 0 cyan; }
+  40% { text-shadow: 2px 2px red, -2px -2px cyan; }
+  60% { text-shadow: -2px -2px red, 2px 2px cyan; }
+  80% { text-shadow: 0 0 red, 0 0 cyan; }
+  100% { text-shadow: 2px 0 red, -2px 0 cyan; }
 }
