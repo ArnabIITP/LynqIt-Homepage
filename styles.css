@@ -8,53 +8,83 @@
 
 body, html {
   height: 100%;
+  width: 100%;
   font-family: 'Orbitron', sans-serif;
-  overflow: hidden;
-  color: #fff;
   background: #000;
+  overflow: hidden;
+  color: white;
 }
 
-.bg-animation {
-  position: absolute;
+.background {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  overflow: hidden;
   top: 0;
   left: 0;
-  height: 200%;
-  width: 200%;
-  background: repeating-conic-gradient(from 0deg, #0ff 0deg 30deg, #222 30deg 60deg);
-  animation: rotateBG 20s linear infinite;
-  transform: translate(-50%, -50%) rotate(0deg);
-  z-index: -1;
-  opacity: 0.07;
 }
 
-@keyframes rotateBG {
-  0% { transform: translate(-50%, -50%) rotate(0deg); }
-  100% { transform: translate(-50%, -50%) rotate(360deg); }
+.sphere {
+  position: absolute;
+  border-radius: 50%;
+  background: radial-gradient(circle, #0ff, #000);
+  opacity: 0.15;
+  animation: float 20s linear infinite;
 }
 
-.container {
+.sphere1 {
+  width: 300px;
+  height: 300px;
+  top: 20%;
+  left: 10%;
+  animation-delay: 0s;
+}
+
+.sphere2 {
+  width: 400px;
+  height: 400px;
+  top: 60%;
+  left: 70%;
+  animation-delay: 5s;
+}
+
+.sphere3 {
+  width: 200px;
+  height: 200px;
+  top: 80%;
+  left: 30%;
+  animation-delay: 10s;
+}
+
+@keyframes float {
+  0% { transform: translateY(0px) scale(1); }
+  50% { transform: translateY(-50px) scale(1.05); }
+  100% { transform: translateY(0px) scale(1); }
+}
+
+.content {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   text-align: center;
-  padding: 2rem;
 }
 
-.glow {
+.title {
   font-size: 3rem;
   color: #0ff;
   text-shadow: 0 0 10px #0ff, 0 0 30px #0ff;
-  margin-bottom: 1rem;
 }
 
-.tagline {
-  font-size: 1.1rem;
-  opacity: 0.7;
-  margin-bottom: 2rem;
+.subtitle {
+  margin-top: 1rem;
+  font-size: 1.2rem;
+  opacity: 0.8;
 }
 
 button {
+  margin-top: 2rem;
   padding: 0.8rem 2rem;
   font-size: 1rem;
   border: 2px solid #0ff;
