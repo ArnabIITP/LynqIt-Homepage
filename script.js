@@ -1,6 +1,5 @@
 const canvas = document.getElementById("particles");
 const ctx = canvas.getContext("2d");
-
 canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
 
@@ -34,3 +33,14 @@ function animateParticles() {
 }
 
 animateParticles();
+
+// Handle music and transition
+function startExperience() {
+  document.getElementById("intro").classList.add("hidden");
+  document.getElementById("main").classList.remove("hidden");
+
+  const audio = document.getElementById("bg-music");
+  audio.play().catch((e) => {
+    console.warn("Audio playback blocked:", e);
+  });
+}
