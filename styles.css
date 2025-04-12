@@ -1,52 +1,71 @@
-.intro-screen {
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@600&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body, html {
+  height: 100%;
+  font-family: 'Orbitron', sans-serif;
+  overflow: hidden;
+  color: #fff;
+  background: #000;
+}
+
+.bg-animation {
   position: absolute;
   top: 0;
   left: 0;
-  height: 100%;
-  width: 100%;
-  background: black;
-  color: #00ffff;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  z-index: 9999;
-  text-align: center;
-  animation: fadeIn 1s ease;
+  height: 200%;
+  width: 200%;
+  background: repeating-conic-gradient(from 0deg, #0ff 0deg 30deg, #222 30deg 60deg);
+  animation: rotateBG 20s linear infinite;
+  transform: translate(-50%, -50%) rotate(0deg);
+  z-index: -1;
+  opacity: 0.07;
 }
 
-.intro-screen button {
-  margin-top: 2rem;
-  padding: 1rem 2rem;
+@keyframes rotateBG {
+  0% { transform: translate(-50%, -50%) rotate(0deg); }
+  100% { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+.container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  padding: 2rem;
+}
+
+.glow {
+  font-size: 3rem;
+  color: #0ff;
+  text-shadow: 0 0 10px #0ff, 0 0 30px #0ff;
+  margin-bottom: 1rem;
+}
+
+.tagline {
+  font-size: 1.1rem;
+  opacity: 0.7;
+  margin-bottom: 2rem;
+}
+
+button {
+  padding: 0.8rem 2rem;
+  font-size: 1rem;
+  border: 2px solid #0ff;
   background: transparent;
   color: #0ff;
-  border: 2px solid #0ff;
-  border-radius: 10px;
-  font-size: 1.2rem;
+  border-radius: 8px;
   cursor: pointer;
   transition: all 0.3s ease;
 }
 
-.intro-screen button:hover {
-  background-color: #0ff;
-  color: black;
-}
-
-.glitch-text {
-  font-size: 2.5rem;
-  position: relative;
-  animation: glitch 1.5s infinite;
-}
-
-.hidden {
-  display: none;
-}
-
-@keyframes glitch {
-  0% { text-shadow: 2px 0 red, -2px 0 cyan; }
-  20% { text-shadow: -2px 0 red, 2px 0 cyan; }
-  40% { text-shadow: 2px 2px red, -2px -2px cyan; }
-  60% { text-shadow: -2px -2px red, 2px 2px cyan; }
-  80% { text-shadow: 0 0 red, 0 0 cyan; }
-  100% { text-shadow: 2px 0 red, -2px 0 cyan; }
+button:hover {
+  background: #0ff;
+  color: #000;
 }
