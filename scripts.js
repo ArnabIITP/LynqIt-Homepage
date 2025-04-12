@@ -1,7 +1,7 @@
-/*!
-* Start Bootstrap - Coming Soon v6.0.7 (https://startbootstrap.com/theme/coming-soon)
-* Copyright 2013-2023 Start Bootstrap
-* Licensed under MIT (https://github.com/StartBootstrap/startbootstrap-coming-soon/blob/master/LICENSE)
-*/
-// This file is intentionally blank
-// Use this file to add JavaScript to your project
+// Custom JavaScript - Form handling can be added here
+document.getElementById('contactForm').addEventListener('submit', function (e) {
+    e.preventDefault();
+    const email = document.getElementById('email').value;
+    alert(`Thanks! We'll notify you at ${email} when we launch.`);
+    document.getElementById('contactForm').reset();
+});
