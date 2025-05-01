@@ -565,7 +565,7 @@ document.addEventListener('DOMContentLoaded', () => {
             <li><a href="#features" class="hover:text-indigo-400 transition">Features</a></li>
             <li><a href="#themes" class="hover:text-indigo-400 transition">Themes</a></li>
             <li><a href="#roadmap" class="hover:text-indigo-400 transition">Roadmap</a></li>
-            <li><a href="http://localhost:5173/login" class="glass hover:bg-indigo-700/50 px-5 py-2 rounded-lg transition">Login</a></li>
+            <li><a href="https://lynqit.onrender.com/login" class="glass hover:bg-indigo-700/50 px-5 py-2 rounded-lg transition">Login</a></li>
           </ul>
         </nav>
       </header>
@@ -586,7 +586,7 @@ document.addEventListener('DOMContentLoaded', () => {
           </p>
           
           <div class="flex flex-wrap justify-center gap-6" data-aos="fade-up" data-aos-delay="200">
-            <button onclick="window.location.href='http://localhost:5173/signup'" class="btn-primary px-8 py-3 rounded-lg text-lg font-semibold">
+            <button onclick="window.location.href='https://lynqit.onrender.com/signup'" class="btn-primary px-8 py-3 rounded-lg text-lg font-semibold">
               <i class="fas fa-rocket mr-2"></i> Get Started
             </button>
             <button class="btn-secondary px-8 py-3 rounded-lg text-lg font-semibold">
@@ -1078,7 +1078,7 @@ document.addEventListener('DOMContentLoaded', () => {
             <p class="text-xl text-gray-300 mb-10 max-w-2xl mx-auto" data-aos="fade-up" data-aos-delay="100">Join LynqIt today and experience the future of real-time communication</p>
             
             <div class="flex flex-wrap justify-center gap-6" data-aos="fade-up" data-aos-delay="200">
-              <button onclick="window.location.href='http://localhost:5173/signup'" class="btn-primary px-8 py-4 rounded-lg text-lg font-semibold">
+              <button onclick="window.location.href='https://lynqit.onrender.com/signup'" class="btn-primary px-8 py-4 rounded-lg text-lg font-semibold">
                 <i class="fas fa-user-plus mr-2"></i> Sign Up Now
               </button>
               <button class="btn-secondary px-8 py-4 rounded-lg text-lg font-semibold">
