@@ -875,22 +875,42 @@ document.addEventListener('DOMContentLoaded', () => {
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 text-center" data-aos="fade-up" data-aos-delay="200">
               <div class="tech-card p-8 rounded-xl">
                 <div class="mb-5 flex justify-center">
-                  <div class="feature-icon w-16 h-16 bg-indigo-600/20 rounded-xl flex items-center justify-center">
-                    <i class="fas fa-database text-2xl text-indigo-500"></i>
+                  <div class="feature-icon w-16 h-16 bg-blue-600/20 rounded-xl flex items-center justify-center">
+                    <i class="fas fa-code text-2xl text-blue-500"></i>
                   </div>
                 </div>
-                <h3 class="text-xl font-semibold mb-2">MERN Stack</h3>
-                <p class="text-gray-300">MongoDB, Express, React, and Node.js for a powerful full-stack solution</p>
+                <h3 class="text-xl font-semibold mb-2">React 19</h3>
+                <p class="text-gray-300">Latest React version with concurrent rendering and modern hooks</p>
               </div>
               
               <div class="tech-card p-8 rounded-xl">
                 <div class="mb-5 flex justify-center">
-                  <div class="feature-icon w-16 h-16 bg-blue-600/20 rounded-xl flex items-center justify-center">
-                    <i class="fas fa-plug text-2xl text-blue-500"></i>
+                  <div class="feature-icon w-16 h-16 bg-green-600/20 rounded-xl flex items-center justify-center">
+                    <i class="fas fa-server text-2xl text-green-500"></i>
+                  </div>
+                </div>
+                <h3 class="text-xl font-semibold mb-2">Express 5</h3>
+                <p class="text-gray-300">Fast, unopinionated web framework for building robust APIs</p>
+              </div>
+              
+              <div class="tech-card p-8 rounded-xl">
+                <div class="mb-5 flex justify-center">
+                  <div class="feature-icon w-16 h-16 bg-purple-600/20 rounded-xl flex items-center justify-center">
+                    <i class="fas fa-database text-2xl text-purple-500"></i>
+                  </div>
+                </div>
+                <h3 class="text-xl font-semibold mb-2">MongoDB</h3>
+                <p class="text-gray-300">NoSQL database for flexible and scalable data storage</p>
+              </div>
+              
+              <div class="tech-card p-8 rounded-xl">
+                <div class="mb-5 flex justify-center">
+                  <div class="feature-icon w-16 h-16 bg-yellow-600/20 rounded-xl flex items-center justify-center">
+                    <i class="fas fa-bolt text-2xl text-yellow-500"></i>
                   </div>
                 </div>
                 <h3 class="text-xl font-semibold mb-2">Socket.io</h3>
-                <p class="text-gray-300">Enabling real-time, bidirectional communication between clients</p>
+                <p class="text-gray-300">Real-time bidirectional event-based communication</p>
               </div>
               
               <div class="tech-card p-8 rounded-xl">
@@ -899,18 +919,38 @@ document.addEventListener('DOMContentLoaded', () => {
                     <i class="fas fa-paint-brush text-2xl text-teal-500"></i>
                   </div>
                 </div>
-                <h3 class="text-xl font-semibold mb-2">TailwindCSS + Daisy UI</h3>
-                <p class="text-gray-300">Modern, responsive interface with beautiful components</p>
+                <h3 class="text-xl font-semibold mb-2">Tailwind + DaisyUI</h3>
+                <p class="text-gray-300">Utility-first CSS and component library for beautiful UIs</p>
               </div>
               
               <div class="tech-card p-8 rounded-xl">
                 <div class="mb-5 flex justify-center">
-                  <div class="feature-icon w-16 h-16 bg-purple-600/20 rounded-xl flex items-center justify-center">
-                    <i class="fas fa-cubes text-2xl text-purple-500"></i>
+                  <div class="feature-icon w-16 h-16 bg-indigo-600/20 rounded-xl flex items-center justify-center">
+                    <i class="fas fa-cubes text-2xl text-indigo-500"></i>
                   </div>
                 </div>
                 <h3 class="text-xl font-semibold mb-2">Zustand</h3>
-                <p class="text-gray-300">Global state management that's simple yet effective</p>
+                <p class="text-gray-300">Lightweight state management with a simple and intuitive API</p>
+              </div>
+              
+              <div class="tech-card p-8 rounded-xl">
+                <div class="mb-5 flex justify-center">
+                  <div class="feature-icon w-16 h-16 bg-red-600/20 rounded-xl flex items-center justify-center">
+                    <i class="fas fa-shield-alt text-2xl text-red-500"></i>
+                  </div>
+                </div>
+                <h3 class="text-xl font-semibold mb-2">JWT + Bcrypt</h3>
+                <p class="text-gray-300">Secure authentication and password hashing for data protection</p>
+              </div>
+              
+              <div class="tech-card p-8 rounded-xl">
+                <div class="mb-5 flex justify-center">
+                  <div class="feature-icon w-16 h-16 bg-pink-600/20 rounded-xl flex items-center justify-center">
+                    <i class="fas fa-cloud text-2xl text-pink-500"></i>
+                  </div>
+                </div>
+                <h3 class="text-xl font-semibold mb-2">Cloudinary</h3>
+                <p class="text-gray-300">Media storage and transformation for rich messaging experiences</p>
               </div>
             </div>
           </div>
