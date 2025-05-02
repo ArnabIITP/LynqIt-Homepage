@@ -547,12 +547,6 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     </style>
     
-    <!-- Vercel Speed Insights Analytics -->
-    <script>
-      window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
-    </script>
-    <script defer src="/_vercel/insights/script.js"></script>
-    
     <div class="grid-pattern min-h-screen">
       <header class="py-4 px-6 flex justify-between items-center glass header-glass sticky top-0 z-50">
         <div class="flex items-center space-x-2">
@@ -1133,6 +1127,7 @@ document.addEventListener('DOMContentLoaded', () => {
             </div>
           </div>
         </section>
+
       </main>
 
       <footer class="py-14 px-6 glass">
@@ -1156,7 +1151,7 @@ document.addEventListener('DOMContentLoaded', () => {
                   <li><a href="#features" class="hover:text-indigo-400 transition">Features</a></li>
                   <li><a href="#themes" class="hover:text-indigo-400 transition">Themes</a></li>
                   <li><a href="#roadmap" class="hover:text-indigo-400 transition">Roadmap</a></li>
-                  <li><a href="#" class="hover:text-indigo-400 transition">Contact</a></li>
+                  <li><a href="https://docs.google.com/forms/d/e/1FAIpQLSexHWwdCLhvZZGqDCjvVyipFApQ3sb6y_R6dVfUSSCJBeK-vw/viewform?usp=dialog" target="_blank" rel="noopener noreferrer" class="hover:text-indigo-400 transition">Contact Us</a></li>
                 </ul>
               </nav>
             </div>
