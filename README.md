@@ -4,7 +4,7 @@ LynqIt is a modern real-time messaging platform built with the MERN stack (Mongo
 
 ## Live Demo & Feedback
 
-- **Live Site:** [https://lynqit.onrender.com](https://lynqit.onrender.com)
+- **Live Site:** [https://lynqit.vercel.app](https://lynqit.vercel.app)
 - **Contact / Feedback:** [Google Feedback Form](https://docs.google.com/forms/d/e/1FAIpQLSexHWwdCLhvZZGqDCjvVyipFApQ3sb6y_R6dVfUSSCJBeK-vw/viewform?usp=dialog)
 
 ---
