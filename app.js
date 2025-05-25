@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
   const app = document.getElementById('app');
-  
+
   // Create and set favicon
   const setFavicon = () => {
     // Create canvas for favicon
@@ -8,27 +8,27 @@ document.addEventListener('DOMContentLoaded', () => {
     canvas.width = 64;
     canvas.height = 64;
     const ctx = canvas.getContext('2d');
-    
+
     // Draw rounded rectangle background
     ctx.beginPath();
     ctx.rect(0, 0, 64, 64);
     ctx.fillStyle = '#4f46e5'; // indigo-600
     ctx.fill();
-    
+
     // Draw chat bubble icon
     ctx.beginPath();
     ctx.fillStyle = 'white';
     ctx.arc(16, 24, 3, 0, Math.PI * 2); // First dot
     ctx.fill();
-    
+
     ctx.beginPath();
     ctx.arc(32, 24, 3, 0, Math.PI * 2); // Second dot
     ctx.fill();
-    
+
     ctx.beginPath();
     ctx.arc(48, 24, 3, 0, Math.PI * 2); // Third dot
     ctx.fill();
-    
+
     // Draw speech bubble outline
     ctx.beginPath();
     ctx.strokeStyle = 'white';
@@ -42,7 +42,7 @@ document.addEventListener('DOMContentLoaded', () => {
     ctx.arc(12, 32, 12, 3*Math.PI/2, Math.PI/2, true);
     ctx.closePath();
     ctx.stroke();
-    
+
     // Convert to favicon and set
     const favicon = document.createElement('link');
     favicon.rel = 'icon';
@@ -50,10 +50,10 @@ document.addEventListener('DOMContentLoaded', () => {
     favicon.href = canvas.toDataURL('image/png');
     document.head.appendChild(favicon);
   };
-  
+
   // Run the favicon generator
   setFavicon();
-  
+
   // Animation initialization function
   const initAnimations = () => {
     // Typing animation for LynqIt text instead of Connect
@@ -71,7 +71,7 @@ document.addEventListener('DOMContentLoaded', () => {
       };
       setTimeout(typeWriter, 500);
     }
-    
+
     // Animate tech cards on scroll
     const techCards = document.querySelectorAll('.tech-card');
     let delay = 0;
@@ -82,7 +82,7 @@ document.addEventListener('DOMContentLoaded', () => {
       card.dataset.delay = delay;
       delay += 150;
     });
-    
+
     // Animate feature cards with hover effects
     const featureCards = document.querySelectorAll('.feature-card');
     featureCards.forEach(card => {
@@ -91,33 +91,33 @@ document.addEventListener('DOMContentLoaded', () => {
         const icon = card.querySelector('.feature-icon');
         if (icon) icon.style.transform = 'scale(1.15)';
       });
-      
+
       card.addEventListener('mouseleave', () => {
         card.style.transform = 'translateY(0)';
         const icon = card.querySelector('.feature-icon');
         if (icon) icon.style.transform = 'scale(1)';
       });
-      
+
       // Add staggered appearance animation
       const delay = parseInt(card.getAttribute('data-aos-delay')) || 0;
       setTimeout(() => {
         card.style.opacity = '0';
         card.style.transform = 'translateY(20px)';
         card.style.transition = 'opacity 0.4s ease, transform 0.4s ease';
-        
+
         setTimeout(() => {
           card.style.opacity = '1';
           card.style.transform = 'translateY(0)';
         }, 100);
       }, delay);
     });
-    
+
     // Floating animation for theme circles
     const themeCircles = document.querySelectorAll('.mt-8 .rounded-full');
     themeCircles.forEach((circle, index) => {
       circle.style.animation = `float 3s ease-in-out ${index * 0.2}s infinite alternate`;
     });
-    
+
     // Chat message animation
     const messages = document.querySelectorAll('.flex-1.p-4.overflow-auto.space-y-4 > div:not(.text-center)');
     messages.forEach((message, index) => {
@@ -129,20 +129,20 @@ document.addEventListener('DOMContentLoaded', () => {
         message.style.transform = 'translateY(0)';
       }, 1000 + (index * 700));
     });
-    
+
     // Add parallax effect to background blobs
     document.addEventListener('mousemove', (e) => {
       const blobs = document.querySelectorAll('.absolute.top-0.left-0.w-full.h-full div');
       const x = e.clientX / window.innerWidth;
       const y = e.clientY / window.innerHeight;
-      
+
       blobs.forEach((blob, index) => {
         const speed = index % 2 === 0 ? 20 : -20;
         blob.style.transform = `translate(${x * speed}px, ${y * speed}px)`;
         blob.style.transition = 'transform 0.2s ease-out';
       });
     });
-    
+
     // Enhanced chat bubble hover effects
     const chatBubbles = document.querySelectorAll('.bg-gray-800.rounded-2xl, .bg-indigo-600.rounded-2xl');
     chatBubbles.forEach(bubble => {
@@ -150,13 +150,13 @@ document.addEventListener('DOMContentLoaded', () => {
         bubble.style.transform = 'translateY(-2px)';
         bubble.style.boxShadow = '0 6px 12px rgba(0, 0, 0, 0.2)';
       });
-      
+
       bubble.addEventListener('mouseleave', () => {
         bubble.style.transform = 'translateY(0)';
         bubble.style.boxShadow = 'none';
       });
     });
-    
+
     // Add pulse effect to online status indicators
     const onlineIndicators = document.querySelectorAll('.absolute.bottom-0.right-0.w-3.h-3.bg-green-500');
     onlineIndicators.forEach(indicator => {
@@ -167,7 +167,7 @@ document.addEventListener('DOMContentLoaded', () => {
       pulseEffect.style.zIndex = '-1';
       indicator.appendChild(pulseEffect);
     });
-    
+
     // Add subtle hover effect to chat list items
     const chatItems = document.querySelectorAll('.hover\\:bg-gray-700\\/50');
     chatItems.forEach(item => {
@@ -176,26 +176,26 @@ document.addEventListener('DOMContentLoaded', () => {
         item.style.borderLeft = '3px solid rgba(99, 102, 241, 0.7)';
         item.style.transition = 'all 0.2s ease';
       });
-      
+
       item.addEventListener('mouseleave', () => {
         item.style.backgroundColor = '';
         item.style.borderLeft = '';
       });
     });
-    
+
     // Add typing animation effect to typing indicator dots
     const typingDots = document.querySelectorAll('.w-2.h-2.rounded-full.bg-gray-400.animate-bounce');
     typingDots.forEach((dot, index) => {
       dot.style.animation = `typing-bounce 1.4s ${index * 0.2}s infinite ease-in-out`;
     });
-    
+
     // Scroll animations for sections
     const handleScroll = () => {
       // Animate tech cards on scroll
       techCards.forEach(card => {
         const cardTop = card.getBoundingClientRect().top;
         const triggerPoint = window.innerHeight * 0.8;
-        
+
         if (cardTop < triggerPoint) {
           setTimeout(() => {
             card.style.opacity = '1';
@@ -203,7 +203,7 @@ document.addEventListener('DOMContentLoaded', () => {
           }, parseInt(card.dataset.delay));
         }
       });
-      
+
       // Add pulse effect to titles when they enter viewport
       const titles = document.querySelectorAll('h2');
       titles.forEach(title => {
@@ -221,12 +221,12 @@ document.addEventListener('DOMContentLoaded', () => {
         }
       });
     };
-    
+
     window.addEventListener('scroll', handleScroll);
     // Trigger initial scroll check
     setTimeout(handleScroll, 100);
   };
-  
+
   // Render the homepage
   app.innerHTML = `
     <style>
@@ -235,23 +235,23 @@ document.addEventListener('DOMContentLoaded', () => {
         0% { transform: translateY(0); }
         100% { transform: translateY(-10px); }
       }
-      
+
       @keyframes pulse {
         0% { transform: scale(1); }
         50% { transform: scale(1.05); }
         100% { transform: scale(1); }
       }
-      
+
       @keyframes fadeIn {
         from { opacity: 0; transform: translateY(20px); }
         to { opacity: 1; transform: translateY(0); }
       }
-      
+
       @keyframes bounce {
         0%, 100% { transform: translateY(0); }
         50% { transform: translateY(-20px); }
       }
-      
+
       @keyframes glitch {
         0% {
           text-shadow: 0.05em 0 0 rgba(255, 0, 0, 0.75),
@@ -289,34 +289,34 @@ document.addEventListener('DOMContentLoaded', () => {
                       -0.025em -0.05em 0 rgba(0, 0, 255, 0.75);
         }
       }
-      
+
       /* Animation classes */
       .animate-float {
         animation: float 3s ease-in-out infinite alternate;
       }
-      
+
       .animate-pulse {
         animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
       }
-      
+
       .animate-fade-in {
         animation: fadeIn 1s ease-out forwards;
       }
-      
+
       .animate-bounce-slow {
         animation: bounce 3s ease-in-out infinite;
       }
-      
+
       /* Enhanced glitch effect */
       .glitch {
         position: relative;
         transition: text-shadow 0.3s ease;
       }
-      
+
       .glitch:hover {
         animation: glitch 0.3s cubic-bezier(.25, .46, .45, .94) both infinite;
       }
-      
+
       .glitch::before,
       .glitch::after {
         content: attr(data-text);
@@ -327,27 +327,27 @@ document.addEventListener('DOMContentLoaded', () => {
         height: 100%;
         opacity: 0.8;
       }
-      
+
       .glitch::before {
         left: 2px;
         text-shadow: -1px 0 #ff00c1;
         clip: rect(44px, 450px, 56px, 0);
         animation: glitch-anim 5s infinite linear alternate-reverse;
       }
-      
+
       .glitch::after {
         left: -2px;
         text-shadow: -1px 0 #00fff9, 1px 2px #ff00c1;
         animation: glitch-anim2 1s infinite linear alternate-reverse;
       }
-      
+
       /* Button hover effects */
       .btn-primary, .btn-secondary {
         position: relative;
         overflow: hidden;
         transition: all 0.3s ease;
       }
-      
+
       .btn-primary::before, .btn-secondary::before {
         content: '';
         position: absolute;
@@ -358,59 +358,59 @@ document.addEventListener('DOMContentLoaded', () => {
         background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
         transition: all 0.6s ease;
       }
-      
+
       .btn-primary:hover::before, .btn-secondary:hover::before {
         left: 100%;
       }
-      
+
       /* Feature icon animation */
       .feature-icon {
         transition: transform 0.3s ease, box-shadow 0.3s ease;
       }
-      
+
       .feature-card:hover .feature-icon {
         transform: scale(1.2);
         box-shadow: 0 0 15px rgba(79, 70, 229, 0.6);
       }
-      
+
       /* Tech stack cards animation */
       .tech-card {
         transition: transform 0.3s ease, box-shadow 0.3s ease;
       }
-      
+
       .tech-card:hover {
         transform: translateY(-10px);
         box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
       }
-      
+
       /* Theme circle animation */
       .theme-number {
         position: relative;
       }
-      
+
       .floating {
         animation: float 3s ease-in-out infinite alternate;
       }
-      
+
       /* Chat interface animations */
       .messages-container > div {
         opacity: 0;
         transform: translateY(20px);
       }
-      
+
       /* Enhanced glass effect */
       .glass {
         background: rgba(15, 23, 42, 0.6);
         backdrop-filter: blur(12px);
         border: 1px solid rgba(255, 255, 255, 0.08);
-        box-shadow: 
+        box-shadow:
           0 4px 30px rgba(0, 0, 0, 0.2),
           inset 0 1px 0 0 rgba(255, 255, 255, 0.05),
           inset 0 0 5px rgba(255, 255, 255, 0.05);
         position: relative;
         overflow: hidden;
       }
-      
+
       /* Add subtle shine to glass elements */
       .glass::before {
         content: '';
@@ -430,36 +430,36 @@ document.addEventListener('DOMContentLoaded', () => {
         z-index: 0;
         animation: shineEffect 8s infinite linear;
       }
-      
+
       /* Glass effect variations */
       .glass.header-glass {
         background: rgba(15, 23, 42, 0.7);
         backdrop-filter: blur(15px);
         border-bottom: 1px solid rgba(79, 70, 229, 0.2);
       }
-      
+
       .glass.card-glass {
         background: rgba(15, 23, 42, 0.5);
         backdrop-filter: blur(10px);
         border: 1px solid rgba(99, 102, 241, 0.15);
         transition: all 0.3s ease;
       }
-      
+
       .glass.card-glass:hover {
         background: rgba(15, 23, 42, 0.6);
         border: 1px solid rgba(99, 102, 241, 0.3);
-        box-shadow: 
+        box-shadow:
           0 8px 30px rgba(0, 0, 0, 0.3),
           inset 0 1px 0 0 rgba(255, 255, 255, 0.1);
       }
-      
+
       .gradient-border {
         position: relative;
         border-radius: 0.5rem;
         background: rgba(15, 23, 42, 0.6);
         backdrop-filter: blur(10px);
       }
-      
+
       .gradient-border::before {
         content: '';
         position: absolute;
@@ -468,7 +468,7 @@ document.addEventListener('DOMContentLoaded', () => {
         right: -1px;
         bottom: -1px;
         background: linear-gradient(
-          45deg, 
+          45deg,
           rgba(99, 102, 241, 0.8),
           rgba(168, 85, 247, 0.4),
           rgba(236, 72, 153, 0.6),
@@ -480,7 +480,7 @@ document.addEventListener('DOMContentLoaded', () => {
         opacity: 0.7;
         animation: borderGlow 6s infinite linear;
       }
-      
+
       @keyframes shineEffect {
         0% {
           opacity: 0.5;
@@ -500,7 +500,7 @@ document.addEventListener('DOMContentLoaded', () => {
           transform: rotate(-45deg) translateY(100%);
         }
       }
-      
+
       @keyframes borderGlow {
         0% {
           filter: blur(4px);
@@ -515,7 +515,7 @@ document.addEventListener('DOMContentLoaded', () => {
           opacity: 0.7;
         }
       }
-      
+
       /* Tech cards enhanced glass effect */
       .tech-card {
         position: relative;
@@ -524,7 +524,7 @@ document.addEventListener('DOMContentLoaded', () => {
         border: 1px solid rgba(255, 255, 255, 0.05);
         overflow: hidden;
       }
-      
+
       .tech-card::after {
         content: '';
         position: absolute;
@@ -541,12 +541,12 @@ document.addEventListener('DOMContentLoaded', () => {
         transform: skewX(-15deg);
         transition: all 0.6s ease;
       }
-      
+
       .tech-card:hover::after {
         left: 100%;
       }
     </style>
-    
+
     <div class="grid-pattern min-h-screen">
       <header class="py-4 px-6 flex justify-between items-center glass header-glass sticky top-0 z-50">
         <div class="flex items-center space-x-2">
@@ -577,14 +577,14 @@ document.addEventListener('DOMContentLoaded', () => {
             <div class="absolute top-20 left-10 w-20 h-20 bg-indigo-500/10 rounded-full blur-xl"></div>
             <div class="absolute bottom-20 right-10 w-32 h-32 bg-purple-500/10 rounded-full blur-xl"></div>
           </div>
-          
+
           <h1 class="text-5xl md:text-7xl font-bold mb-6" data-aos="fade-up">
             <span class="hero-gradient">Connect</span> in Real-Time with <span class="hero-gradient accent-underline">LynqIt</span>
           </h1>
           <p class="text-xl text-gray-300 mb-10 max-w-3xl mx-auto text-balance" data-aos="fade-up" data-aos-delay="100">
             A powerful messaging platform built with <span class="text-indigo-400">MERN stack</span>, <span class="text-purple-400">Socket.io</span>, and modern UI tools for seamless real-time communication.
           </p>
-          
+
           <div class="flex flex-wrap justify-center gap-6" data-aos="fade-up" data-aos-delay="200">
             <button onclick="window.location.href='https://lynqit.onrender.com/signup'" class="btn-primary px-8 py-3 rounded-lg text-lg font-semibold">
               <i class="fas fa-rocket mr-2"></i> Get Started
@@ -593,7 +593,7 @@ document.addEventListener('DOMContentLoaded', () => {
               <i class="fas fa-info-circle mr-2"></i> Learn More
             </button>
           </div>
-          
+
           <div class="mt-16 relative" data-aos="zoom-in" data-aos-delay="300">
             <div class="absolute inset-0 bg-gradient-to-b from-transparent to-gray-900 z-10"></div>
             <div class="rounded-xl shadow-2xl glow mx-auto gradient-border overflow-hidden">
@@ -607,7 +607,7 @@ document.addEventListener('DOMContentLoaded', () => {
                   <div class="text-sm text-gray-500">LynqIt Messenger</div>
                   <div class="w-8"></div>
                 </div>
-                
+
                 <div class="bg-gray-50 rounded-lg overflow-hidden border border-gray-200">
                   <div class="flex h-[500px]">
                     <!-- Sidebar -->
@@ -627,7 +627,7 @@ document.addEventListener('DOMContentLoaded', () => {
                             </svg>
                           </button>
                         </div>
-                        
+
                         <div class="relative">
                           <input type="text" placeholder="Search conversations" class="w-full bg-white text-gray-700 rounded-lg px-4 py-2 pl-9 focus:outline-none focus:ring-2 focus:ring-indigo-500 text-sm border border-gray-300" />
                           <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-gray-500 absolute left-3 top-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -635,7 +635,7 @@ document.addEventListener('DOMContentLoaded', () => {
                           </svg>
                         </div>
                       </div>
-                      
+
                       <!-- Chat list -->
                       <div class="overflow-auto flex-1">
                         <!-- Selected chat -->
@@ -651,7 +651,7 @@ document.addEventListener('DOMContentLoaded', () => {
                             <div class="text-xs text-indigo-600">Online</div>
                           </div>
                         </div>
-                        
+
                         <!-- Other chats -->
                         <div class="hover:bg-gray-200 p-4 flex items-center cursor-pointer border-b border-gray-200">
                           <div class="relative">
@@ -668,7 +668,7 @@ document.addEventListener('DOMContentLoaded', () => {
                             <div class="text-sm text-gray-600 truncate">Hey, are you coming to the party tonight?</div>
                           </div>
                         </div>
-                        
+
                         <div class="hover:bg-gray-200 p-4 flex items-center cursor-pointer border-b border-gray-200">
                           <div class="relative">
                             <div class="w-10 h-10 rounded-full bg-green-500 flex items-center justify-center text-white font-bold">
@@ -684,7 +684,7 @@ document.addEventListener('DOMContentLoaded', () => {
                             <div class="text-sm text-gray-600 truncate">Did you see that new movie? It was awesome!</div>
                           </div>
                         </div>
-                        
+
                         <div class="hover:bg-gray-200 p-4 flex items-center cursor-pointer border-b border-gray-200">
                           <div class="relative">
                             <div class="w-10 h-10 rounded-full bg-yellow-500 flex items-center justify-center text-white font-bold">
@@ -699,7 +699,7 @@ document.addEventListener('DOMContentLoaded', () => {
                             <div class="text-sm text-gray-600 truncate">Thanks for the help with my homework!</div>
                           </div>
                         </div>
-                        
+
                         <div class="hover:bg-gray-200 p-4 flex items-center cursor-pointer border-b border-gray-200">
                           <div class="relative">
                             <div class="w-10 h-10 rounded-full bg-purple-500 flex items-center justify-center text-white font-bold">
@@ -717,7 +717,7 @@ document.addEventListener('DOMContentLoaded', () => {
                             2
                           </div>
                         </div>
-                        
+
                         <div class="hover:bg-gray-200 p-4 flex items-center cursor-pointer">
                           <div class="relative">
                             <div class="w-10 h-10 rounded-full bg-red-500 flex items-center justify-center text-white font-bold">
@@ -734,7 +734,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         </div>
                       </div>
                     </div>
-                    
+
                     <!-- Chat area -->
                     <div class="flex-1 flex flex-col bg-white">
                       <!-- Chat header -->
@@ -769,12 +769,12 @@ document.addEventListener('DOMContentLoaded', () => {
                           </button>
                         </div>
                       </div>
-                      
+
                       <!-- Messages area with dummy messages -->
                       <div class="flex-1 p-4 overflow-auto space-y-4">
                         <!-- Time indicator -->
                         <div class="text-center text-xs text-gray-500 my-2">Today, 10:30 AM</div>
-                        
+
                         <!-- Received message -->
                         <div class="flex items-start space-x-2">
                           <div class="w-8 h-8 rounded-full bg-blue-500 flex-shrink-0 flex items-center justify-center text-white text-xs font-bold">
@@ -787,7 +787,7 @@ document.addEventListener('DOMContentLoaded', () => {
                             <span class="text-xs text-gray-500 mt-1">10:30 AM</span>
                           </div>
                         </div>
-                        
+
                         <!-- Sent message -->
                         <div class="flex items-start justify-end space-x-2">
                           <div class="flex flex-col items-end">
@@ -797,7 +797,7 @@ document.addEventListener('DOMContentLoaded', () => {
                             <span class="text-xs text-gray-500 mt-1">10:32 AM</span>
                           </div>
                         </div>
-                        
+
                         <!-- Received message with image attachment -->
                         <div class="flex items-start space-x-2">
                           <div class="w-8 h-8 rounded-full bg-blue-500 flex-shrink-0 flex items-center justify-center text-white text-xs font-bold">
@@ -813,7 +813,7 @@ document.addEventListener('DOMContentLoaded', () => {
                             <span class="text-xs text-gray-500 mt-1">10:40 AM</span>
                           </div>
                         </div>
-                        
+
                         <!-- Typing indicator -->
                         <div class="flex items-start space-x-2">
                           <div class="w-8 h-8 rounded-full bg-blue-500 flex-shrink-0 flex items-center justify-center text-white text-xs font-bold">
@@ -828,7 +828,7 @@ document.addEventListener('DOMContentLoaded', () => {
                           </div>
                         </div>
                       </div>
-                      
+
                       <!-- Message input -->
                       <div class="p-4 border-t border-gray-200">
                         <div class="flex items-center">
@@ -855,7 +855,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 </div>
               </div>
             </div>
-            
+
             <div class="absolute -bottom-3 left-1/2 transform -translate-x-1/2 w-3/4">
               <div class="futuristic-line"></div>
             </div>
@@ -871,8 +871,9 @@ document.addEventListener('DOMContentLoaded', () => {
             <p class="text-xl text-center text-gray-300 mb-16 max-w-2xl mx-auto" data-aos="fade-up" data-aos-delay="100">
               Built with cutting-edge tools for performance, reliability, and exceptional user experience
             </p>
-            
+
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 text-center" data-aos="fade-up" data-aos-delay="200">
+              <!-- Frontend Technologies -->
               <div class="tech-card p-8 rounded-xl">
                 <div class="mb-5 flex justify-center">
                   <div class="feature-icon w-16 h-16 bg-blue-600/20 rounded-xl flex items-center justify-center">
@@ -882,37 +883,9 @@ document.addEventListener('DOMContentLoaded', () => {
                 <h3 class="text-xl font-semibold mb-2">React 19</h3>
                 <p class="text-gray-300">Latest React version with concurrent rendering and modern hooks</p>
               </div>
-              
-              <div class="tech-card p-8 rounded-xl">
-                <div class="mb-5 flex justify-center">
-                  <div class="feature-icon w-16 h-16 bg-green-600/20 rounded-xl flex items-center justify-center">
-                    <i class="fas fa-server text-2xl text-green-500"></i>
-                  </div>
-                </div>
-                <h3 class="text-xl font-semibold mb-2">Express 5</h3>
-                <p class="text-gray-300">Fast, unopinionated web framework for building robust APIs</p>
-              </div>
-              
-              <div class="tech-card p-8 rounded-xl">
-                <div class="mb-5 flex justify-center">
-                  <div class="feature-icon w-16 h-16 bg-purple-600/20 rounded-xl flex items-center justify-center">
-                    <i class="fas fa-database text-2xl text-purple-500"></i>
-                  </div>
-                </div>
-                <h3 class="text-xl font-semibold mb-2">MongoDB</h3>
-                <p class="text-gray-300">NoSQL database for flexible and scalable data storage</p>
-              </div>
-              
-              <div class="tech-card p-8 rounded-xl">
-                <div class="mb-5 flex justify-center">
-                  <div class="feature-icon w-16 h-16 bg-yellow-600/20 rounded-xl flex items-center justify-center">
-                    <i class="fas fa-bolt text-2xl text-yellow-500"></i>
-                  </div>
-                </div>
-                <h3 class="text-xl font-semibold mb-2">Socket.io</h3>
-                <p class="text-gray-300">Real-time bidirectional event-based communication</p>
-              </div>
-              
+
+
+
               <div class="tech-card p-8 rounded-xl">
                 <div class="mb-5 flex justify-center">
                   <div class="feature-icon w-16 h-16 bg-teal-600/20 rounded-xl flex items-center justify-center">
@@ -922,7 +895,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 <h3 class="text-xl font-semibold mb-2">Tailwind + DaisyUI</h3>
                 <p class="text-gray-300">Utility-first CSS and component library for beautiful UIs</p>
               </div>
-              
+
               <div class="tech-card p-8 rounded-xl">
                 <div class="mb-5 flex justify-center">
                   <div class="feature-icon w-16 h-16 bg-indigo-600/20 rounded-xl flex items-center justify-center">
@@ -930,9 +903,70 @@ document.addEventListener('DOMContentLoaded', () => {
                   </div>
                 </div>
                 <h3 class="text-xl font-semibold mb-2">Zustand</h3>
-                <p class="text-gray-300">Lightweight state management with a simple and intuitive API</p>
+                <p class="text-gray-300">Lightweight state management with simple and intuitive API</p>
               </div>
-              
+
+              <div class="tech-card p-8 rounded-xl">
+                <div class="mb-5 flex justify-center">
+                  <div class="feature-icon w-16 h-16 bg-violet-600/20 rounded-xl flex items-center justify-center">
+                    <i class="fas fa-route text-2xl text-violet-500"></i>
+                  </div>
+                </div>
+                <h3 class="text-xl font-semibold mb-2">React Router DOM v7</h3>
+                <p class="text-gray-300">Latest routing solution for React applications</p>
+              </div>
+
+              <div class="tech-card p-8 rounded-xl">
+                <div class="mb-5 flex justify-center">
+                  <div class="feature-icon w-16 h-16 bg-amber-600/20 rounded-xl flex items-center justify-center">
+                    <i class="fas fa-icons text-2xl text-amber-500"></i>
+                  </div>
+                </div>
+                <h3 class="text-xl font-semibold mb-2">Lucide React</h3>
+                <p class="text-gray-300">Modern icon library with beautiful SVG icons</p>
+              </div>
+
+              <!-- Backend Technologies -->
+              <div class="tech-card p-8 rounded-xl">
+                <div class="mb-5 flex justify-center">
+                  <div class="feature-icon w-16 h-16 bg-green-600/20 rounded-xl flex items-center justify-center">
+                    <i class="fas fa-server text-2xl text-green-500"></i>
+                  </div>
+                </div>
+                <h3 class="text-xl font-semibold mb-2">Express.js 5</h3>
+                <p class="text-gray-300">Fast, unopinionated web framework for building robust APIs</p>
+              </div>
+
+              <div class="tech-card p-8 rounded-xl">
+                <div class="mb-5 flex justify-center">
+                  <div class="feature-icon w-16 h-16 bg-emerald-600/20 rounded-xl flex items-center justify-center">
+                    <i class="fab fa-node-js text-2xl text-emerald-500"></i>
+                  </div>
+                </div>
+                <h3 class="text-xl font-semibold mb-2">Node.js 18+</h3>
+                <p class="text-gray-300">Latest LTS runtime environment</p>
+              </div>
+
+              <div class="tech-card p-8 rounded-xl">
+                <div class="mb-5 flex justify-center">
+                  <div class="feature-icon w-16 h-16 bg-purple-600/20 rounded-xl flex items-center justify-center">
+                    <i class="fas fa-database text-2xl text-purple-500"></i>
+                  </div>
+                </div>
+                <h3 class="text-xl font-semibold mb-2">MongoDB</h3>
+                <p class="text-gray-300">NoSQL database for flexible and scalable data storage</p>
+              </div>
+
+              <div class="tech-card p-8 rounded-xl">
+                <div class="mb-5 flex justify-center">
+                  <div class="feature-icon w-16 h-16 bg-yellow-600/20 rounded-xl flex items-center justify-center">
+                    <i class="fas fa-bolt text-2xl text-yellow-500"></i>
+                  </div>
+                </div>
+                <h3 class="text-xl font-semibold mb-2">Socket.IO v4.8</h3>
+                <p class="text-gray-300">Real-time bidirectional event-based communication</p>
+              </div>
+
               <div class="tech-card p-8 rounded-xl">
                 <div class="mb-5 flex justify-center">
                   <div class="feature-icon w-16 h-16 bg-red-600/20 rounded-xl flex items-center justify-center">
@@ -942,7 +976,18 @@ document.addEventListener('DOMContentLoaded', () => {
                 <h3 class="text-xl font-semibold mb-2">JWT + Bcrypt</h3>
                 <p class="text-gray-300">Secure authentication and password hashing for data protection</p>
               </div>
-              
+
+              <div class="tech-card p-8 rounded-xl">
+                <div class="mb-5 flex justify-center">
+                  <div class="feature-icon w-16 h-16 bg-cyan-600/20 rounded-xl flex items-center justify-center">
+                    <i class="fas fa-key text-2xl text-cyan-500"></i>
+                  </div>
+                </div>
+                <h3 class="text-xl font-semibold mb-2">Speakeasy</h3>
+                <p class="text-gray-300">TOTP-based Two-Factor Authentication</p>
+              </div>
+
+              <!-- Cloud & DevOps -->
               <div class="tech-card p-8 rounded-xl">
                 <div class="mb-5 flex justify-center">
                   <div class="feature-icon w-16 h-16 bg-pink-600/20 rounded-xl flex items-center justify-center">
@@ -952,6 +997,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 <h3 class="text-xl font-semibold mb-2">Cloudinary</h3>
                 <p class="text-gray-300">Media storage and transformation for rich messaging experiences</p>
               </div>
+
+
             </div>
           </div>
         </section>
@@ -965,8 +1012,9 @@ document.addEventListener('DOMContentLoaded', () => {
             <p class="text-xl text-center text-gray-300 mb-10 max-w-2xl mx-auto" data-aos="fade-up" data-aos-delay="100">
               Everything you need for seamless communication in one platform
             </p>
-            
+
             <div class="features-grid grid grid-cols-1 md:grid-cols-3 gap-5">
+              <!-- Core Communication Features -->
               <div class="feature-card glass card-glass p-5 rounded-xl" data-aos="fade-up" data-aos-delay="200">
                 <div class="w-12 h-12 bg-indigo-600/20 rounded-xl flex items-center justify-center mb-4 feature-icon">
                   <i class="fas fa-comment-dots text-xl text-indigo-500"></i>
@@ -974,69 +1022,127 @@ document.addEventListener('DOMContentLoaded', () => {
                 <h3 class="text-lg font-semibold mb-2">Real-Time Messaging</h3>
                 <p class="text-gray-300 text-sm">Instantly connect with friends with zero delay in message delivery</p>
               </div>
-              
+
               <div class="feature-card glass card-glass p-5 rounded-xl" data-aos="fade-up" data-aos-delay="250">
-                <div class="w-12 h-12 bg-green-600/20 rounded-xl flex items-center justify-center mb-4 feature-icon">
-                  <i class="fas fa-palette text-xl text-green-500"></i>
+                <div class="w-12 h-12 bg-purple-600/20 rounded-xl flex items-center justify-center mb-4 feature-icon">
+                  <i class="fas fa-users text-xl text-purple-500"></i>
+                </div>
+                <h3 class="text-lg font-semibold mb-2">Group Chat Management</h3>
+                <p class="text-gray-300 text-sm">Create and manage groups with role-based permissions</p>
+              </div>
+
+              <div class="feature-card glass card-glass p-5 rounded-xl" data-aos="fade-up" data-aos-delay="300">
+                <div class="w-12 h-12 bg-blue-600/20 rounded-xl flex items-center justify-center mb-4 feature-icon">
+                  <i class="fas fa-check-double text-xl text-blue-500"></i>
+                </div>
+                <h3 class="text-lg font-semibold mb-2">Message Status</h3>
+                <p class="text-gray-300 text-sm">Single tick (sent), double tick (delivered), blue tick (seen)</p>
+              </div>
+
+
+
+              <div class="feature-card glass card-glass p-5 rounded-xl" data-aos="fade-up" data-aos-delay="400">
+                <div class="w-12 h-12 bg-yellow-600/20 rounded-xl flex items-center justify-center mb-4 feature-icon">
+                  <i class="fas fa-heart text-xl text-yellow-500"></i>
+                </div>
+                <h3 class="text-lg font-semibold mb-2">Message Reactions</h3>
+                <p class="text-gray-300 text-sm">Emoji reactions for interactive messaging</p>
+              </div>
+
+              <div class="feature-card glass card-glass p-5 rounded-xl" data-aos="fade-up" data-aos-delay="450">
+                <div class="w-12 h-12 bg-cyan-600/20 rounded-xl flex items-center justify-center mb-4 feature-icon">
+                  <i class="fas fa-reply text-xl text-cyan-500"></i>
+                </div>
+                <h3 class="text-lg font-semibold mb-2">Reply to Messages</h3>
+                <p class="text-gray-300 text-sm">Context-preserved message replies</p>
+              </div>
+
+              <!-- Media & Content Sharing -->
+              <div class="feature-card glass card-glass p-5 rounded-xl" data-aos="fade-up" data-aos-delay="500">
+                <div class="w-12 h-12 bg-pink-600/20 rounded-xl flex items-center justify-center mb-4 feature-icon">
+                  <i class="fas fa-image text-xl text-pink-500"></i>
+                </div>
+                <h3 class="text-lg font-semibold mb-2">Image Sharing</h3>
+                <p class="text-gray-300 text-sm">Share images seamlessly within conversations</p>
+              </div>
+
+
+
+              <div class="feature-card glass card-glass p-5 rounded-xl" data-aos="fade-up" data-aos-delay="600">
+                <div class="w-12 h-12 bg-emerald-600/20 rounded-xl flex items-center justify-center mb-4 feature-icon">
+                  <i class="fas fa-images text-xl text-emerald-500"></i>
+                </div>
+                <h3 class="text-lg font-semibold mb-2">Image Previews</h3>
+                <p class="text-gray-300 text-sm">Full-screen image viewing capabilities</p>
+              </div>
+
+              <!-- User Experience & Interface -->
+              <div class="feature-card glass card-glass p-5 rounded-xl" data-aos="fade-up" data-aos-delay="650">
+                <div class="w-12 h-12 bg-violet-600/20 rounded-xl flex items-center justify-center mb-4 feature-icon">
+                  <i class="fas fa-palette text-xl text-violet-500"></i>
                 </div>
                 <h3 class="text-lg font-semibold mb-2">32 Beautiful Themes</h3>
                 <p class="text-gray-300 text-sm">Customize your experience with a variety of color themes</p>
               </div>
-              
-              <div class="feature-card glass card-glass p-5 rounded-xl" data-aos="fade-up" data-aos-delay="300">
-                <div class="w-12 h-12 bg-purple-600/20 rounded-xl flex items-center justify-center mb-4 feature-icon">
-                  <i class="fas fa-photo-video text-xl text-purple-500"></i>
+
+              <div class="feature-card glass card-glass p-5 rounded-xl" data-aos="fade-up" data-aos-delay="700">
+                <div class="w-12 h-12 bg-slate-600/20 rounded-xl flex items-center justify-center mb-4 feature-icon">
+                  <i class="fas fa-moon text-xl text-slate-500"></i>
                 </div>
-                <h3 class="text-lg font-semibold mb-2">Media Sharing</h3>
-                <p class="text-gray-300 text-sm">Share images, videos, and files seamlessly within conversations</p>
+                <h3 class="text-lg font-semibold mb-2">Dark/Light Mode</h3>
+                <p class="text-gray-300 text-sm">Automatic time-based theme switching</p>
               </div>
-              
-              <div class="feature-card glass card-glass p-5 rounded-xl" data-aos="fade-up" data-aos-delay="350">
-                <div class="w-12 h-12 bg-blue-600/20 rounded-xl flex items-center justify-center mb-4 feature-icon">
-                  <i class="fas fa-user-check text-xl text-blue-500"></i>
-                </div>
-                <h3 class="text-lg font-semibold mb-2">Online Status</h3>
-                <p class="text-gray-300 text-sm">Know when your contacts are online and available to chat</p>
-              </div>
-              
-              <div class="feature-card glass card-glass p-5 rounded-xl" data-aos="fade-up" data-aos-delay="400">
+
+
+
+              <!-- Security & Authentication -->
+              <div class="feature-card glass card-glass p-5 rounded-xl" data-aos="fade-up" data-aos-delay="800">
                 <div class="w-12 h-12 bg-red-600/20 rounded-xl flex items-center justify-center mb-4 feature-icon">
                   <i class="fas fa-shield-alt text-xl text-red-500"></i>
                 </div>
                 <h3 class="text-lg font-semibold mb-2">JWT Authentication</h3>
                 <p class="text-gray-300 text-sm">Secure authentication system ensuring conversations remain private</p>
               </div>
-              
-              <div class="feature-card glass card-glass p-5 rounded-xl" data-aos="fade-up" data-aos-delay="450">
-                <div class="w-12 h-12 bg-yellow-600/20 rounded-xl flex items-center justify-center mb-4 feature-icon">
-                  <i class="fas fa-bug-slash text-xl text-yellow-500"></i>
-                </div>
-                <h3 class="text-lg font-semibold mb-2">Error Handling</h3>
-                <p class="text-gray-300 text-sm">Robust error handling system on client and server sides</p>
-              </div>
-              
-              <div class="feature-card glass card-glass p-5 rounded-xl" data-aos="fade-up" data-aos-delay="500">
-                <div class="w-12 h-12 bg-orange-600/20 rounded-xl flex items-center justify-center mb-4 feature-icon">
-                  <i class="fab fa-google text-xl text-orange-500"></i>
+
+              <div class="feature-card glass card-glass p-5 rounded-xl" data-aos="fade-up" data-aos-delay="850">
+                <div class="w-12 h-12 bg-amber-600/20 rounded-xl flex items-center justify-center mb-4 feature-icon">
+                  <i class="fab fa-google text-xl text-amber-500"></i>
                 </div>
                 <h3 class="text-lg font-semibold mb-2">Google Authentication</h3>
                 <p class="text-gray-300 text-sm">Sign in effortlessly with your Google account for quick access</p>
               </div>
-              
-              <div class="feature-card glass card-glass p-5 rounded-xl" data-aos="fade-up" data-aos-delay="550">
-                <div class="w-12 h-12 bg-teal-600/20 rounded-xl flex items-center justify-center mb-4 feature-icon">
-                  <i class="fas fa-lock text-xl text-teal-500"></i>
+
+              <div class="feature-card glass card-glass p-5 rounded-xl" data-aos="fade-up" data-aos-delay="900">
+                <div class="w-12 h-12 bg-lime-600/20 rounded-xl flex items-center justify-center mb-4 feature-icon">
+                  <i class="fas fa-lock text-xl text-lime-500"></i>
                 </div>
                 <h3 class="text-lg font-semibold mb-2">Bcrypt Security</h3>
-                <p class="text-gray-300 text-sm">Advanced encryption with hourly code rotation for ultimate protection</p>
+                <p class="text-gray-300 text-sm">Advanced encryption with secure password hashing</p>
               </div>
-              
-              <div class="feature-card glass card-glass p-5 rounded-xl" data-aos="fade-up" data-aos-delay="600">
-                <div class="w-12 h-12 bg-pink-600/20 rounded-xl flex items-center justify-center mb-4 feature-icon">
-                  <i class="fas fa-trash-alt text-xl text-pink-500"></i>
+
+              <!-- Advanced Features -->
+              <div class="feature-card glass card-glass p-5 rounded-xl" data-aos="fade-up" data-aos-delay="950">
+                <div class="w-12 h-12 bg-sky-600/20 rounded-xl flex items-center justify-center mb-4 feature-icon">
+                  <i class="fas fa-user-check text-xl text-sky-500"></i>
+                </div>
+                <h3 class="text-lg font-semibold mb-2">Online Status</h3>
+                <p class="text-gray-300 text-sm">Know when your contacts are online and available to chat</p>
+              </div>
+
+              <div class="feature-card glass card-glass p-5 rounded-xl" data-aos="fade-up" data-aos-delay="1000">
+                <div class="w-12 h-12 bg-rose-600/20 rounded-xl flex items-center justify-center mb-4 feature-icon">
+                  <i class="fas fa-trash-alt text-xl text-rose-500"></i>
                 </div>
                 <h3 class="text-lg font-semibold mb-2">Message Deletion</h3>
-                <p class="text-gray-300 text-sm">Full control to delete messages from your end at any time</p>
+                <p class="text-gray-300 text-sm">Full control to delete messages (for me/for everyone)</p>
+              </div>
+
+              <div class="feature-card glass card-glass p-5 rounded-xl" data-aos="fade-up" data-aos-delay="1050">
+                <div class="w-12 h-12 bg-fuchsia-600/20 rounded-xl flex items-center justify-center mb-4 feature-icon">
+                  <i class="fas fa-bug-slash text-xl text-fuchsia-500"></i>
+                </div>
+                <h3 class="text-lg font-semibold mb-2">Error Handling</h3>
+                <p class="text-gray-300 text-sm">Robust error handling system on client and server sides</p>
               </div>
             </div>
           </div>
@@ -1051,7 +1157,7 @@ document.addEventListener('DOMContentLoaded', () => {
             <p class="text-xl text-center text-gray-300 mb-16 max-w-2xl mx-auto" data-aos="fade-up" data-aos-delay="100">
               Choose from a wide range of themes to customize your messaging interface
             </p>
-            
+
             <div class="flex justify-center items-center" data-aos="zoom-in" data-aos-delay="200">
               <div class="text-center p-10 glass gradient-border max-w-2xl">
                 <div class="theme-number text-9xl font-bold mb-6 floating">32</div>
@@ -1079,26 +1185,26 @@ document.addEventListener('DOMContentLoaded', () => {
             <p class="text-xl text-center text-gray-300 mb-16 max-w-2xl mx-auto" data-aos="fade-up" data-aos-delay="100">
               Exciting features we're working on to make LynqIt even better
             </p>
-            
+
             <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
               <div class="feature-card glass p-8 rounded-xl" data-aos="fade-up" data-aos-delay="200">
-                <div class="w-16 h-16 bg-indigo-600/20 rounded-xl flex items-center justify-center mb-6 feature-icon">
-                  <i class="fas fa-users text-2xl text-indigo-500"></i>
-                </div>
-                <div class="inline-block px-3 py-1 bg-indigo-900/50 text-indigo-300 text-xs rounded-full mb-4">Coming Soon</div>
-                <h3 class="text-xl font-semibold mb-3">Group Chatting</h3>
-                <p class="text-gray-300">Create and manage group conversations with multiple participants. Share ideas, plan events, and collaborate seamlessly.</p>
-              </div>
-              
-              <div class="feature-card glass p-8 rounded-xl" data-aos="fade-up" data-aos-delay="300">
                 <div class="w-16 h-16 bg-green-600/20 rounded-xl flex items-center justify-center mb-6 feature-icon">
                   <i class="fas fa-video text-2xl text-green-500"></i>
                 </div>
                 <div class="inline-block px-3 py-1 bg-green-900/50 text-green-300 text-xs rounded-full mb-4">In Development</div>
                 <h3 class="text-xl font-semibold mb-3">Voice/Video Calling</h3>
-                <p class="text-gray-300">One-to-one and group calling capabilities for more interactive communication with crystal-clear audio and HD video quality.</p>
+                <p class="text-gray-300">One-to-one and group calling capabilities with WebRTC for crystal-clear audio and HD video quality.</p>
               </div>
-              
+
+              <div class="feature-card glass p-8 rounded-xl" data-aos="fade-up" data-aos-delay="300">
+                <div class="w-16 h-16 bg-blue-600/20 rounded-xl flex items-center justify-center mb-6 feature-icon">
+                  <i class="fas fa-chart-line text-2xl text-blue-500"></i>
+                </div>
+                <div class="inline-block px-3 py-1 bg-blue-900/50 text-blue-300 text-xs rounded-full mb-4">In Development</div>
+                <h3 class="text-xl font-semibold mb-3">Advanced Analytics</h3>
+                <p class="text-gray-300">Usage statistics and insights dashboard for better understanding of communication patterns and platform performance.</p>
+              </div>
+
               <div class="feature-card glass p-8 rounded-xl" data-aos="fade-up" data-aos-delay="400">
                 <div class="w-16 h-16 bg-purple-600/20 rounded-xl flex items-center justify-center mb-6 feature-icon">
                   <i class="fas fa-robot text-2xl text-purple-500"></i>
@@ -1106,6 +1212,33 @@ document.addEventListener('DOMContentLoaded', () => {
                 <div class="inline-block px-3 py-1 bg-purple-900/50 text-purple-300 text-xs rounded-full mb-4">Planned</div>
                 <h3 class="text-xl font-semibold mb-3">AI Integration</h3>
                 <p class="text-gray-300">Smart assistants and AI-powered features to enhance your messaging experience with intelligent responses and automation.</p>
+              </div>
+
+              <div class="feature-card glass p-8 rounded-xl" data-aos="fade-up" data-aos-delay="450">
+                <div class="w-16 h-16 bg-orange-600/20 rounded-xl flex items-center justify-center mb-6 feature-icon">
+                  <i class="fas fa-mobile-alt text-2xl text-orange-500"></i>
+                </div>
+                <div class="inline-block px-3 py-1 bg-orange-900/50 text-orange-300 text-xs rounded-full mb-4">Planned</div>
+                <h3 class="text-xl font-semibold mb-3">Mobile Applications</h3>
+                <p class="text-gray-300">Native iOS and Android apps with React Native for seamless mobile messaging experience.</p>
+              </div>
+
+              <div class="feature-card glass p-8 rounded-xl" data-aos="fade-up" data-aos-delay="500">
+                <div class="w-16 h-16 bg-red-600/20 rounded-xl flex items-center justify-center mb-6 feature-icon">
+                  <i class="fas fa-building text-2xl text-red-500"></i>
+                </div>
+                <div class="inline-block px-3 py-1 bg-red-900/50 text-red-300 text-xs rounded-full mb-4">Planned</div>
+                <h3 class="text-xl font-semibold mb-3">Enterprise Features</h3>
+                <p class="text-gray-300">Advanced admin controls, enterprise security, and organizational management tools for business use.</p>
+              </div>
+
+              <div class="feature-card glass p-8 rounded-xl" data-aos="fade-up" data-aos-delay="550">
+                <div class="w-16 h-16 bg-teal-600/20 rounded-xl flex items-center justify-center mb-6 feature-icon">
+                  <i class="fas fa-tachometer-alt text-2xl text-teal-500"></i>
+                </div>
+                <div class="inline-block px-3 py-1 bg-teal-900/50 text-teal-300 text-xs rounded-full mb-4">Planned</div>
+                <h3 class="text-xl font-semibold mb-3">Performance Optimization</h3>
+                <p class="text-gray-300">Enhanced caching, database optimization, and performance improvements for faster messaging experience.</p>
               </div>
             </div>
           </div>
@@ -1116,7 +1249,7 @@ document.addEventListener('DOMContentLoaded', () => {
           <div class="max-w-4xl mx-auto text-center">
             <h2 class="text-5xl font-bold mb-6" data-aos="fade-up">Ready to Connect?</h2>
             <p class="text-xl text-gray-300 mb-10 max-w-2xl mx-auto" data-aos="fade-up" data-aos-delay="100">Join LynqIt today and experience the future of real-time communication</p>
-            
+
             <div class="flex flex-wrap justify-center gap-6" data-aos="fade-up" data-aos-delay="200">
               <button onclick="window.location.href='https://lynqit.onrender.com/signup'" class="btn-primary px-8 py-4 rounded-lg text-lg font-semibold">
                 <i class="fas fa-user-plus mr-2"></i> Sign Up Now
@@ -1144,19 +1277,20 @@ document.addEventListener('DOMContentLoaded', () => {
                 <h1 class="text-2xl font-bold hero-gradient">LynqIt</h1>
               </a>
             </div>
-            
+
             <div>
               <nav>
                 <ul class="flex flex-wrap justify-center gap-6">
                   <li><a href="#features" class="hover:text-indigo-400 transition">Features</a></li>
                   <li><a href="#themes" class="hover:text-indigo-400 transition">Themes</a></li>
                   <li><a href="#roadmap" class="hover:text-indigo-400 transition">Roadmap</a></li>
-                  <li><a href="https://docs.google.com/forms/d/e/1FAIpQLSexHWwdCLhvZZGqDCjvVyipFApQ3sb6y_R6dVfUSSCJBeK-vw/viewform?usp=dialog" target="_blank" rel="noopener noreferrer" class="hover:text-indigo-400 transition">Contact Us</a></li>
+                  <li><a href="https://docs.google.com/forms/d/e/1FAIpQLSexHWwdCLhvZZGqDCjvVyipFApQ3sb6y_R6dVfUSSCJBeK-vw/viewform?usp=dialog" target="_blank" rel="noopener noreferrer" class="hover:text-indigo-400 transition">Customer Feedback</a></li>
+                  <li><a href="mailto:slynqit@gmail.com" class="hover:text-indigo-400 transition">Contact Us</a></li>
                 </ul>
               </nav>
             </div>
           </div>
-          
+
           <div class="border-t border-gray-700 pt-6 text-center text-gray-400">
             <p>&copy; 2025 LynqIt. All rights reserved.</p>
           </div>
@@ -1164,7 +1298,7 @@ document.addEventListener('DOMContentLoaded', () => {
       </footer>
     </div>
   `;
-  
+
   // Initialize animations after DOM is fully loaded
   setTimeout(initAnimations, 100);
-}); 
+});
